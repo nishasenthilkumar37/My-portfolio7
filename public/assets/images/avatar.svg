@@ -1,0 +1,286 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" width="100%" height="100%" role="img" aria-label="Modern stylish illustration of Nisha S, female web designer and front-end developer">
+  <defs>
+    <!-- Skin Tones & Shading -->
+    <linearGradient id="skin-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEEDE"/>
+      <stop offset="45%" stop-color="#FCDDC7"/>
+      <stop offset="100%" stop-color="#F5C7AE"/>
+    </linearGradient>
+
+    <linearGradient id="skin-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2B89D" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#E29F80" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <radialGradient id="blush-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E3B7BE" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#E3B7BE" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Hair Shading (Deep Espresso & Warm Burgundy Highlights) -->
+    <linearGradient id="hair-back" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D111C"/>
+      <stop offset="60%" stop-color="#3B1724"/>
+      <stop offset="100%" stop-color="#1A0A10"/>
+    </linearGradient>
+
+    <linearGradient id="hair-front" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#4A1528"/>
+      <stop offset="40%" stop-color="#3B1724"/>
+      <stop offset="85%" stop-color="#240A14"/>
+      <stop offset="100%" stop-color="#1A070E"/>
+    </linearGradient>
+
+    <linearGradient id="hair-sheen" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#C98F9B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#E3B7BE" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#C98F9B" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Outfit: Structured Burgundy Blazer & Silk Cream Top -->
+    <linearGradient id="blazer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#842647"/>
+      <stop offset="45%" stop-color="#6B1F3A"/>
+      <stop offset="100%" stop-color="#4A1528"/>
+    </linearGradient>
+
+    <linearGradient id="blazer-lapel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9E2F56"/>
+      <stop offset="60%" stop-color="#73223E"/>
+      <stop offset="100%" stop-color="#4A1528"/>
+    </linearGradient>
+
+    <linearGradient id="blazer-shadow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#330B1B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#330B1B" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="silk-top-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="60%" stop-color="#FFF4E6"/>
+      <stop offset="100%" stop-color="#F2DEC9"/>
+    </linearGradient>
+
+    <!-- Gold & Jewelry Highlights -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7E2BC"/>
+      <stop offset="50%" stop-color="#E5C17D"/>
+      <stop offset="100%" stop-color="#C49B45"/>
+    </linearGradient>
+
+    <!-- Subtle Floating Code Badges (Dusky Pink & Cream) -->
+    <linearGradient id="badge-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF4E6" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#F9EBDD" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Drop Shadows & Soft Glows -->
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="subtle-float-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#4A1528" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* Elegant Subtle Floating & Micro-Animations */
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes hairBreeze {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(1.2deg) translateY(-1px); }
+    }
+
+    @keyframes eyelidBlink {
+      0%, 94%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.06); }
+    }
+
+    @keyframes floatTag1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(1.5deg); }
+    }
+
+    @keyframes floatTag2 {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-1.5deg); }
+    }
+
+    @keyframes sparkleGlow {
+      0%, 100% { opacity: 0.35; transform: scale(0.85); }
+      50% { opacity: 0.95; transform: scale(1.15); }
+    }
+
+    .float-character {
+      animation: subtleFloat 5s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    .hair-sway {
+      animation: hairBreeze 4.5s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    .blink-eye {
+      animation: eyelidBlink 4.2s infinite;
+      transform-origin: 250px 180px;
+    }
+
+    .code-tag-1 {
+      animation: floatTag1 4s ease-in-out infinite;
+    }
+
+    .code-tag-2 {
+      animation: floatTag2 4.6s ease-in-out infinite;
+    }
+
+    .sparkle-1 {
+      animation: sparkleGlow 3s ease-in-out infinite;
+    }
+
+    .sparkle-2 {
+      animation: sparkleGlow 3.6s ease-in-out infinite 1s;
+    }
+  </style>
+
+  <!-- Group: Ambient Floating Developer Syntax Elements (Non-intrusive) -->
+  <g class="ambient-syntax">
+    <!-- Top Left: Elegant Code Tag < / > -->
+    <g class="code-tag-1" transform="translate(45, 120)">
+      <rect width="78" height="34" rx="17" fill="url(#badge-glow)" stroke="#E3B7BE" stroke-width="1.2" filter="url(#subtle-float-shadow)"/>
+      <text x="39" y="22" fill="#6B1F3A" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="13" text-anchor="middle">&lt;dev /&gt;</text>
+    </g>
+
+    <!-- Top Right: Modern Curly Bracket Tag { UI } -->
+    <g class="code-tag-2" transform="translate(375, 160)">
+      <rect width="80" height="34" rx="17" fill="url(#badge-glow)" stroke="#E3B7BE" stroke-width="1.2" filter="url(#subtle-float-shadow)"/>
+      <text x="40" y="22" fill="#6B1F3A" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="12.5" text-anchor="middle">{ UI / UX }</text>
+    </g>
+
+    <!-- Subtle Golden Sparkles -->
+    <g class="sparkle-1" transform="translate(100, 240)">
+      <path d="M 0 6 Q 0 0 6 0 Q 0 0 0 -6 Q 0 0 -6 0 Q 0 0 0 6 Z" fill="#E5C17D"/>
+    </g>
+    <g class="sparkle-2" transform="translate(415, 290)">
+      <path d="M 0 7 Q 0 0 7 0 Q 0 0 0 -7 Q 0 0 -7 0 Q 0 0 0 7 Z" fill="#C98F9B"/>
+    </g>
+  </g>
+
+  <!-- Group: Main Character Illustration -->
+  <g class="float-character" filter="url(#subtle-float-shadow)">
+    <!-- 1. Back Layer: Long Cascading Hair -->
+    <g id="hair-back-group">
+      <!-- Left side long waves -->
+      <path d="M 175 160 C 135 220 120 320 135 430 C 142 470 160 510 180 540 C 190 510 195 440 190 380 C 185 320 190 240 205 180 Z" fill="url(#hair-back)"/>
+      <!-- Right side cascading long waves -->
+      <path d="M 325 160 C 370 230 385 330 375 440 C 370 485 355 520 335 550 C 330 510 325 450 325 390 C 325 330 320 250 305 180 Z" fill="url(#hair-back)"/>
+    </g>
+
+    <!-- 2. Body / Torso / Silk Top -->
+    <g id="body-torso">
+      <!-- Neck & Collarbones -->
+      <path d="M 225 210 L 225 285 Q 250 305 275 285 L 275 210 Z" fill="url(#skin-base)"/>
+      <!-- Neck Shadow under chin -->
+      <path d="M 225 210 Q 250 242 275 210 Q 250 252 225 210 Z" fill="url(#skin-shadow)"/>
+      <!-- Delicate Collarbone Lines -->
+      <path d="M 230 280 Q 250 288 270 280" stroke="#E29F80" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+      
+      <!-- Minimalist Gold Pendant Necklace -->
+      <path d="M 236 265 Q 250 282 264 265" stroke="url(#gold-grad)" stroke-width="1.3" fill="none"/>
+      <circle cx="250" cy="282" r="3.2" fill="url(#gold-grad)"/>
+
+      <!-- Silk Cream Blouse Top -->
+      <path d="M 215 280 L 285 280 L 305 400 L 195 400 Z" fill="url(#silk-top-grad)"/>
+      <path d="M 215 280 Q 250 325 285 280 L 275 360 Q 250 375 225 360 Z" fill="#FFFDF9"/>
+    </g>
+
+    <!-- 3. Tailored Burgundy Blazer Jacket -->
+    <g id="blazer-jacket">
+      <!-- Left Shoulder & Sleeve -->
+      <path d="M 218 276 C 185 282 145 315 130 385 C 122 425 118 480 115 560 L 195 560 C 198 490 205 430 215 370 Z" fill="url(#blazer-grad)"/>
+      
+      <!-- Right Shoulder & Sleeve -->
+      <path d="M 282 276 C 315 282 355 315 370 385 C 378 425 382 480 385 560 L 305 560 C 302 490 295 430 285 370 Z" fill="url(#blazer-grad)"/>
+
+      <!-- Blazer Main Body & Satin Lapels -->
+      <!-- Left Lapel -->
+      <path d="M 218 276 L 192 370 L 248 430 L 250 560 L 190 560 L 180 380 Z" fill="url(#blazer-lapel)"/>
+      <!-- Right Lapel (Overlapping) -->
+      <path d="M 282 276 L 308 370 L 248 430 L 250 560 L 310 560 L 320 380 Z" fill="url(#blazer-lapel)"/>
+      
+      <!-- Deep Lapel Crease & Shadow -->
+      <path d="M 218 276 Q 238 360 248 430 Q 258 360 282 276" stroke="#4A1528" stroke-width="2" fill="none"/>
+      <!-- Gold Button Accent -->
+      <circle cx="250" cy="455" r="4.5" fill="url(#gold-grad)"/>
+      <circle cx="250" cy="505" r="4.5" fill="url(#gold-grad)"/>
+    </g>
+
+    <!-- 4. Head & Natural Facial Structure -->
+    <g id="head-group">
+      <!-- Head Base Structure -->
+      <path d="M 205 145 C 205 90 295 90 295 145 C 295 185 280 225 250 236 C 220 225 205 185 205 145 Z" fill="url(#skin-base)"/>
+      
+      <!-- Soft Cheek Blushes -->
+      <circle cx="222" cy="186" r="16" fill="url(#blush-glow)"/>
+      <circle cx="278" cy="186" r="16" fill="url(#blush-glow)"/>
+
+      <!-- Refined Eyebrows -->
+      <path d="M 218 152 Q 232 146 244 150" stroke="#3B1724" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <path d="M 282 152 Q 268 146 256 150" stroke="#3B1724" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+
+      <!-- Expressive, Natural Almond Eyes with Blink Animation -->
+      <g class="blink-eye">
+        <!-- Left Eye -->
+        <path d="M 220 166 Q 232 158 243 166 Q 232 173 220 166 Z" fill="#FFFFFF"/>
+        <circle cx="232" cy="166" r="4.2" fill="#3B1724"/>
+        <circle cx="233.5" cy="164.5" r="1.5" fill="#FFFFFF"/>
+        <!-- Upper Eyeliner & Lashes -->
+        <path d="M 218 166 Q 232 157 244 165" stroke="#240A14" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+        <!-- Right Eye -->
+        <path d="M 257 166 Q 268 158 280 166 Q 268 173 257 166 Z" fill="#FFFFFF"/>
+        <circle cx="268" cy="166" r="4.2" fill="#3B1724"/>
+        <circle cx="269.5" cy="164.5" r="1.5" fill="#FFFFFF"/>
+        <!-- Upper Eyeliner & Lashes -->
+        <path d="M 256 165 Q 268 157 282 166" stroke="#240A14" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </g>
+
+      <!-- Delicate Nose -->
+      <path d="M 248 168 L 246 188 Q 250 192 254 188" stroke="#E29F80" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+      <!-- Elegant Natural Smile / Lips -->
+      <!-- Upper Lip -->
+      <path d="M 236 205 Q 244 202 250 204 Q 256 202 264 205 Q 250 209 236 205 Z" fill="#9E2F56"/>
+      <!-- Lower Lip -->
+      <path d="M 238 206 Q 250 216 262 206 Q 250 211 238 206 Z" fill="#C98F9B"/>
+      <!-- Lip Shine Highlight -->
+      <ellipse cx="250" cy="209" rx="3.5" ry="1.2" fill="#FFF4E6" opacity="0.75"/>
+
+      <!-- Delicate Gold Hoop Earrings -->
+      <ellipse cx="206" cy="180" rx="3" ry="9" fill="none" stroke="url(#gold-grad)" stroke-width="1.8"/>
+      <ellipse cx="294" cy="180" rx="3" ry="9" fill="none" stroke="url(#gold-grad)" stroke-width="1.8"/>
+    </g>
+
+    <!-- 5. Front Flowing Hair (Volume, Waves & Sheen) -->
+    <g id="hair-front-group" class="hair-sway">
+      <!-- Crown Volume & Parting -->
+      <path d="M 200 145 C 200 70 300 70 300 145 C 300 115 285 92 245 92 C 215 92 200 115 200 145 Z" fill="url(#hair-front)"/>
+      
+      <!-- Left Side Swept Bangs & Long Front Wave -->
+      <path d="M 245 92 C 220 95 190 125 185 170 C 180 210 190 260 185 310 C 180 360 165 410 170 470 C 174 440 185 390 192 340 C 200 280 205 220 205 165 C 205 130 220 105 245 92 Z" fill="url(#hair-front)"/>
+      
+      <!-- Right Side Cascading Waves Framing the Face -->
+      <path d="M 245 92 C 275 92 305 120 310 165 C 315 210 305 260 315 310 C 322 355 340 400 345 460 C 335 425 325 375 320 325 C 312 265 318 205 310 160 C 305 125 285 100 245 92 Z" fill="url(#hair-front)"/>
+
+      <!-- Subtle Hair Highlights & Luminous Waves -->
+      <path d="M 220 105 Q 192 145 190 200 Q 188 260 195 320" stroke="url(#hair-sheen)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M 270 102 Q 305 140 308 190 Q 312 250 318 310" stroke="url(#hair-sheen)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #08080c;
+    --bg-card: rgba(18, 18, 26, 0.7);
+    --bg-card-hover: rgba(26, 26, 38, 0.85);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(230, 200, 139, 0.35);
+    --gold-primary: #e6c88b;
+    --gold-glow: rgba(230, 200, 139, 0.25);
+    --rose-accent: #f4a6b8;
+    --cyan-accent: #64dfdf;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', 'Outfit', sans-serif;
+  }
+
+  .font-mono-code {
+    font-family: 'Space Grotesk', monospace;
+  }
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(15, 15, 22, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: radial-gradient(120% 120% at 50% 0%, rgba(230, 200, 139, 0.08) 0%, rgba(15, 15, 22, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(230, 200, 139, 0.2);
+}
+
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(230, 200, 139, 0.4);
+  box-shadow: 0 12px 40px -10px rgba(230, 200, 139, 0.15), 0 0 20px rgba(230, 200, 139, 0.05);
+  transform: translateY(-4px);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fae8c8 40%, #e6c88b 75%, #c89d53 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rose-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd4de 40%, #f4a6b8 80%, #d8708c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cyan-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #c4f7f7 40%, #64dfdf 80%, #38b2ac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ambient-glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e2d;
+  border-radius: 4px;
+  border: 1px solid rgba(230, 200, 139, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e6c88b;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes rotateOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: rotateOrbit 25s linear infinite;
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(230, 200, 139, 0.1) 0%, rgba(230, 200, 139, 0.4) 50%, rgba(230, 200, 139, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: shimmerWave 3s infinite;
+}
+
+/* Hide cursor on desktop when custom cursor active */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-enabled {
+    cursor: none;
+  }
+  body.custom-cursor-enabled a,
+  body.custom-cursor-enabled button,
+  body.custom-cursor-enabled input,
+  body.custom-cursor-enabled textarea,
+  body.custom-cursor-enabled select,
+  body.custom-cursor-enabled [role="button"] {
+    cursor: none;
+  }
+}
