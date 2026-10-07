@@ -54,20 +54,20 @@ export default function CustomCursor() {
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden" aria-hidden="true">
       {/* Outer trailing ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#e6c88b]/60 pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B9828F]/70 pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: pos.x,
           y: pos.y,
-          scale: isHovered ? 1.6 : 1,
-          borderColor: isHovered ? '#64dfdf' : 'rgba(230, 200, 139, 0.6)',
-          backgroundColor: isHovered ? 'rgba(100, 223, 223, 0.08)' : 'transparent'
+          scale: isHovered ? 1.5 : 1,
+          borderColor: isHovered ? '#6B1F32' : 'rgba(185, 130, 143, 0.7)',
+          backgroundColor: isHovered ? 'rgba(185, 130, 143, 0.12)' : 'transparent'
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 350, mass: 0.5 }}
       />
 
       {/* Inner precise dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#e6c88b] pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#6B1F32] pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2"
         animate={{
           x: pos.x,
           y: pos.y,

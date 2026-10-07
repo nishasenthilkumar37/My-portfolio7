@@ -18,9 +18,9 @@ export default function App() {
   const [curtainDone, setCurtainDone] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#08080c] text-white selection:bg-[#e6c88b]/30 selection:text-[#fff8e7] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#F7F0E6] text-[#3B2929] selection:bg-[#B9828F]/30 selection:text-[#6B1F32] overflow-x-hidden">
       
-      {/* 1. Split-Screen Opening Animation */}
+      {/* 1. Realistic Tulip Opening Animation */}
       {!curtainDone && (
         <OpeningCurtain onComplete={() => setCurtainDone(true)} />
       )}
@@ -31,7 +31,7 @@ export default function App() {
       {/* 3. Custom Follower Cursor */}
       <CustomCursor />
 
-      {/* 4. Ambient 3D Particles & Glows */}
+      {/* 4. Ambient Botanical Atmosphere */}
       <ParticleBackground />
 
       {/* 5. Floating Navigation Dock */}
@@ -39,7 +39,7 @@ export default function App() {
 
       {/* 6. Main Portfolio Layout */}
       <main className="relative z-10 flex flex-col items-center w-full">
-        {/* Hero Section with 3D Tulip Canvas & Character */}
+        {/* Hero Section with Realistic Photographic Tulip */}
         <HeroSection />
 
         {/* About Me Section */}

@@ -7,16 +7,15 @@ import {
   BookOpen,
   Sparkles,
   CheckCircle2,
-  ChevronRight,
   Palette
 } from 'lucide-react';
 
 const PALETTE = [
-  { name: 'Charcoal Noir', color: '#1e293b' },
-  { name: 'Champagne Gold', color: '#e6c88b' },
-  { name: 'Rose Quartz', color: '#f4a6b8' },
-  { name: 'Cyan Glow', color: '#64dfdf' },
-  { name: 'Chalk White', color: '#ffffff' }
+  { name: 'Burgundy Noir', color: '#6B1F32' },
+  { name: 'Dusky Pink', color: '#B9828F' },
+  { name: 'Warm Charcoal', color: '#3B2929' },
+  { name: 'Soft Rose', color: '#D4A7B2' },
+  { name: 'Pure White', color: '#FFFFFF' }
 ];
 
 const MINI_LESSONS = [
@@ -40,7 +39,7 @@ const MINI_LESSONS = [
 export default function DrawCraftInteractiveDemo() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [brushColor, setBrushColor] = useState(PALETTE[1].color); // Gold default
+  const [brushColor, setBrushColor] = useState(PALETTE[0].color); // Burgundy default
   const [brushSize, setBrushSize] = useState(4);
   const [activeLesson, setActiveLesson] = useState(0);
   const historyRef = useRef([]);
@@ -51,12 +50,12 @@ export default function DrawCraftInteractiveDemo() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Fill background with rich dark sketchpad tone
-    ctx.fillStyle = '#0e0e18';
+    // Fill background with warm off-white sketchpad tone
+    ctx.fillStyle = '#FFF9F2';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Subtle sketch grid lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    // Subtle sketch grid lines in soft beige
+    ctx.strokeStyle = 'rgba(107, 31, 50, 0.05)';
     ctx.lineWidth = 1;
     for (let x = 0; x < canvas.width; x += 30) {
       ctx.beginPath();
@@ -71,7 +70,6 @@ export default function DrawCraftInteractiveDemo() {
       ctx.stroke();
     }
 
-    // Save initial canvas state
     saveState();
   }, []);
 
@@ -133,16 +131,21 @@ export default function DrawCraftInteractiveDemo() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#0e0e18';
+    ctx.fillStyle = '#FFF9F2';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // redraw grid
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.strokeStyle = 'rgba(107, 31, 50, 0.05)';
     ctx.lineWidth = 1;
     for (let x = 0; x < canvas.width; x += 30) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(canvas.width, y => y);
+      ctx.lineTo(x, canvas.height);
+      ctx.stroke();
+    }
+    for (let y = 0; y < canvas.height; y += 30) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(canvas.width, y);
       ctx.stroke();
     }
     saveState();
@@ -159,11 +162,11 @@ export default function DrawCraftInteractiveDemo() {
   };
 
   return (
-    <div className="w-full glass-panel-gold rounded-3xl p-6 sm:p-8 border border-[#e6c88b]/40 flex flex-col md:flex-row items-start gap-8 shadow-2xl">
+    <div className="w-full glass-panel-burgundy rounded-3xl p-6 sm:p-8 border border-[#B9828F]/40 bg-[#FFF9F2] flex flex-col md:flex-row items-start gap-8 shadow-sm">
       
       {/* Left Canvas Workstation */}
       <div className="w-full md:w-1/2 flex flex-col items-center">
-        <div className="relative w-full max-w-[340px] aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0e0e18]">
+        <div className="relative w-full max-w-[340px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#E8D8C8] shadow-inner bg-[#FFF9F2]">
           <canvas
             ref={canvasRef}
             width={340}
@@ -179,14 +182,13 @@ export default function DrawCraftInteractiveDemo() {
             title="Sketch freely on this canvas"
           />
 
-          <div className="absolute top-2 left-3 px-2 py-0.5 rounded bg-black/60 border border-white/10 text-[10px] font-mono-code text-gray-400 pointer-events-none">
+          <div className="absolute top-2 left-3 px-2 py-0.5 rounded bg-white/80 border border-[#E8D8C8] text-[10px] font-mono-code text-[#6B1F32] font-semibold pointer-events-none">
             Canvas Studio • Draw Here
           </div>
         </div>
 
         {/* Canvas Toolbar */}
-        <div className="w-full max-w-[340px] flex items-center justify-between mt-3 pt-3 border-t border-white/10">
-          {/* Color swatches */}
+        <div className="w-full max-w-[340px] flex items-center justify-between mt-3 pt-3 border-t border-[#E8D8C8]">
           <div className="flex items-center gap-1.5">
             {PALETTE.map((p) => (
               <button
@@ -196,7 +198,7 @@ export default function DrawCraftInteractiveDemo() {
                   setBrushColor(p.color);
                 }}
                 className={`w-6 h-6 rounded-full border transition-transform cursor-pointer ${
-                  brushColor === p.color ? 'scale-125 border-white shadow-sm' : 'border-white/20'
+                  brushColor === p.color ? 'scale-125 border-[#6B1F32] shadow-sm ring-1 ring-[#6B1F32]' : 'border-[#E8D8C8]'
                 }`}
                 style={{ backgroundColor: p.color }}
                 title={p.name}
@@ -204,19 +206,18 @@ export default function DrawCraftInteractiveDemo() {
             ))}
           </div>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <button
               onClick={handleClear}
-              className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 text-xs flex items-center gap-1 cursor-pointer"
+              className="p-1.5 rounded-lg bg-[#F7F0E6] hover:bg-[#E8D8C8] text-[#3B2929] text-xs flex items-center gap-1 cursor-pointer font-medium"
               title="Clear sketch"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5 text-[#6B1F32]" />
               <span>Clear</span>
             </button>
             <button
               onClick={handleDownload}
-              className="p-1.5 rounded-lg bg-[#e6c88b] text-[#0a0a10] font-bold text-xs flex items-center gap-1 cursor-pointer"
+              className="p-1.5 rounded-lg bg-[#6B1F32] text-[#FFF9F2] font-bold text-xs flex items-center gap-1 cursor-pointer shadow-sm"
               title="Save PNG"
             >
               <Download className="w-3.5 h-3.5" />
@@ -226,17 +227,17 @@ export default function DrawCraftInteractiveDemo() {
         </div>
       </div>
 
-      {/* Right Lesson Guide & Interactive Curriculum */}
+      {/* Right Lesson Guide */}
       <div className="w-full md:w-1/2 space-y-4">
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-mono-code text-[#64dfdf] uppercase tracking-wider mb-1">
-            <BookOpen className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 text-xs font-mono-code text-[#6B1F32] uppercase tracking-wider mb-1 font-bold">
+            <BookOpen className="w-3.5 h-3.5 text-[#B9828F]" />
             <span>Interactive Art Curriculum</span>
           </div>
-          <h4 className="text-xl font-bold font-display text-white">
+          <h4 className="text-xl font-bold font-display text-[#3B2929]">
             DrawCraft Studio Preview
           </h4>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-600">
             Interactive drawing lessons and structured visual stages from the DrawCraft platform.
           </p>
         </div>
@@ -252,19 +253,19 @@ export default function DrawCraftInteractiveDemo() {
               }}
               className={`p-3 rounded-xl border transition-all cursor-pointer ${
                 activeLesson === idx
-                  ? 'bg-[#64dfdf]/10 border-[#64dfdf] text-white shadow-md'
-                  : 'bg-white/[0.02] border-white/5 text-gray-400 hover:bg-white/5'
+                  ? 'bg-[#F7F0E6] border-[#6B1F32] text-[#3B2929] shadow-sm'
+                  : 'bg-[#FFF9F2] border-[#E8D8C8] text-[#3B2929]/70 hover:bg-[#F7F0E6]'
               }`}
             >
-              <div className="flex items-center justify-between text-xs font-semibold">
+              <div className="flex items-center justify-between text-xs font-bold text-[#6B1F32]">
                 <span>{lesson.title}</span>
-                {activeLesson === idx && <CheckCircle2 className="w-3.5 h-3.5 text-[#64dfdf]" />}
+                {activeLesson === idx && <CheckCircle2 className="w-3.5 h-3.5 text-[#6B1F32]" />}
               </div>
-              <div className="text-[11px] text-gray-300 mt-1">
+              <div className="text-[11px] text-[#3B2929]/80 mt-1">
                 {lesson.concept}
               </div>
               {activeLesson === idx && (
-                <div className="text-[10px] text-[#e6c88b] font-mono-code mt-1.5 border-t border-white/5 pt-1">
+                <div className="text-[10px] text-[#B9828F] font-mono-code mt-1.5 border-t border-[#E8D8C8] pt-1 font-medium">
                   💡 Pro Tip: {lesson.tip}
                 </div>
               )}
@@ -272,8 +273,8 @@ export default function DrawCraftInteractiveDemo() {
           ))}
         </div>
 
-        <div className="text-[11px] font-mono-code text-gray-400 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-[#e6c88b]" />
+        <div className="text-[11px] font-mono-code text-[#6B1F32] flex items-center gap-1.5 font-medium">
+          <Sparkles className="w-3.5 h-3.5 text-[#B9828F]" />
           <span>Full project includes 30+ lessons, anatomy library & color harmony studio</span>
         </div>
       </div>

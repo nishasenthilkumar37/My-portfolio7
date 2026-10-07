@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { soundFX } from '../../utils/soundEffects';
-import { Lightbulb, Zap, Sliders, Sparkles, Volume2 } from 'lucide-react';
+import { Lightbulb, Zap, Sliders, Sparkles } from 'lucide-react';
 
 const FILAMENT_TYPES = [
   { id: 'spiral', name: 'Spiral Coil' },
@@ -10,10 +10,10 @@ const FILAMENT_TYPES = [
 ];
 
 const GLASS_TINTS = [
-  { id: 'amber', name: 'Amber Gold', hex: 'rgba(230, 160, 60, 0.25)', glow: 'rgba(245, 175, 65, ' },
+  { id: 'amber', name: 'Amber Glow', hex: 'rgba(230, 160, 60, 0.25)', glow: 'rgba(245, 175, 65, ' },
   { id: 'smoke', name: 'Smoke Quartz', hex: 'rgba(120, 120, 140, 0.25)', glow: 'rgba(200, 190, 210, ' },
   { id: 'clear', name: 'Clear Crystal', hex: 'rgba(200, 230, 255, 0.15)', glow: 'rgba(220, 240, 255, ' },
-  { id: 'emerald', name: 'Emerald Velvet', hex: 'rgba(40, 160, 110, 0.25)', glow: 'rgba(50, 220, 150, ' }
+  { id: 'rose', name: 'Rose Tint', hex: 'rgba(185, 130, 143, 0.25)', glow: 'rgba(185, 130, 143, ' }
 ];
 
 export default function VoltaInteractiveDemo() {
@@ -23,7 +23,6 @@ export default function VoltaInteractiveDemo() {
   const [glassTint, setGlassTint] = useState(GLASS_TINTS[0]);
   const canvasRef = useRef(null);
 
-  // Render filament and glow physics on Canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -44,7 +43,6 @@ export default function VoltaInteractiveDemo() {
       const centerY = height / 2 - 10;
       const bulbRadius = 68;
 
-      // Glow factor
       const alpha = isOn ? (brightness / 100) : 0.05;
       const flicker = isOn ? (Math.sin(time * 15) * 0.02 + 0.98) : 1;
       const effectiveAlpha = alpha * flicker;
@@ -66,30 +64,26 @@ export default function VoltaInteractiveDemo() {
         ctx.fill();
       }
 
-      // 2. Glass Bulb Envelope (Tear/Edison shape)
+      // 2. Glass Bulb Envelope
       ctx.save();
       ctx.beginPath();
-      // Glass body
       ctx.arc(centerX, centerY - 15, bulbRadius, Math.PI * 0.15, Math.PI * 0.85, false);
       ctx.quadraticCurveTo(centerX + 32, centerY + bulbRadius + 20, centerX + 24, centerY + bulbRadius + 38);
       ctx.lineTo(centerX - 24, centerY + bulbRadius + 38);
       ctx.quadraticCurveTo(centerX - 32, centerY + bulbRadius + 20, centerX - bulbRadius * Math.cos(Math.PI * 0.15), centerY - 15 + bulbRadius * Math.sin(Math.PI * 0.15));
       ctx.closePath();
 
-      // Glass tint fill
       ctx.fillStyle = glassTint.hex;
       ctx.fill();
 
-      // Glass specular reflection
       ctx.lineWidth = 2.5;
-      ctx.strokeStyle = isOn ? `${glassTint.glow}${0.4 + effectiveAlpha * 0.4})` : 'rgba(255, 255, 255, 0.15)';
+      ctx.strokeStyle = isOn ? `${glassTint.glow}${0.4 + effectiveAlpha * 0.4})` : 'rgba(107, 31, 50, 0.25)';
       ctx.stroke();
 
-      // Glass reflection streak
       ctx.beginPath();
       ctx.arc(centerX - 10, centerY - 25, bulbRadius - 14, Math.PI * 0.8, Math.PI * 1.25, false);
       ctx.lineWidth = 3;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
       ctx.stroke();
       ctx.restore();
 
@@ -97,14 +91,13 @@ export default function VoltaInteractiveDemo() {
       const socketY = centerY + bulbRadius + 36;
       ctx.fillStyle = '#b48a3c';
       ctx.fillRect(centerX - 22, socketY, 44, 28);
-      // Screw threads
       ctx.fillStyle = '#8c651e';
       ctx.fillRect(centerX - 24, socketY + 6, 48, 4);
       ctx.fillRect(centerX - 24, socketY + 14, 48, 4);
       ctx.fillRect(centerX - 24, socketY + 22, 48, 4);
 
-      // 4. Filament Supports (Steel Lead Wires)
-      ctx.strokeStyle = '#64748b';
+      // 4. Filament Supports
+      ctx.strokeStyle = '#6B1F32';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(centerX - 12, socketY);
@@ -123,7 +116,6 @@ export default function VoltaInteractiveDemo() {
         ctx.beginPath();
 
         if (filamentType === 'spiral') {
-          // Double Spiral
           let sy = centerY + 22;
           ctx.moveTo(centerX - 12, sy);
           for (let y = sy; y > centerY - 45; y -= 6) {
@@ -132,7 +124,6 @@ export default function VoltaInteractiveDemo() {
           }
           ctx.lineTo(centerX + 12, sy);
         } else if (filamentType === 'squirrel') {
-          // Classic Cage Loops
           ctx.moveTo(centerX - 12, centerY + 20);
           ctx.lineTo(centerX - 22, centerY - 40);
           ctx.lineTo(centerX - 6, centerY - 45);
@@ -141,7 +132,6 @@ export default function VoltaInteractiveDemo() {
           ctx.lineTo(centerX + 22, centerY - 40);
           ctx.lineTo(centerX + 12, centerY + 20);
         } else {
-          // Quad Loop
           ctx.moveTo(centerX - 12, centerY + 20);
           ctx.bezierCurveTo(centerX - 35, centerY - 20, centerX - 10, centerY - 55, centerX - 4, centerY - 40);
           ctx.bezierCurveTo(centerX + 4, centerY - 55, centerX + 35, centerY - 20, centerX + 12, centerY + 20);
@@ -150,8 +140,7 @@ export default function VoltaInteractiveDemo() {
         ctx.stroke();
         ctx.restore();
       } else {
-        // Cold Dark Filament
-        ctx.strokeStyle = '#475569';
+        ctx.strokeStyle = '#8C2F46';
         ctx.lineWidth = 1.2;
         ctx.beginPath();
         ctx.moveTo(centerX - 12, centerY + 20);
@@ -173,11 +162,11 @@ export default function VoltaInteractiveDemo() {
   };
 
   return (
-    <div className="w-full glass-panel-gold rounded-3xl p-6 sm:p-8 border border-[#e6c88b]/40 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
+    <div className="w-full glass-panel-burgundy rounded-3xl p-6 sm:p-8 border border-[#B9828F]/40 bg-[#FFF9F2] flex flex-col md:flex-row items-center gap-8 shadow-sm">
       
       {/* Left Canvas Preview Area */}
       <div className="relative w-full md:w-1/2 flex flex-col items-center justify-center">
-        <div className="relative w-[280px] h-[340px] flex items-center justify-center rounded-2xl bg-black/40 border border-white/5 overflow-hidden">
+        <div className="relative w-[280px] h-[340px] flex items-center justify-center rounded-2xl bg-[#3B2929] border border-[#E8D8C8] overflow-hidden shadow-inner">
           <canvas
             ref={canvasRef}
             width={280}
@@ -192,11 +181,11 @@ export default function VoltaInteractiveDemo() {
             onClick={handleToggle}
             className={`absolute bottom-3 px-3 py-1.5 rounded-full text-xs font-mono-code flex items-center gap-1.5 transition-all cursor-pointer ${
               isOn
-                ? 'bg-[#e6c88b] text-[#0a0a10] font-bold shadow-[0_0_15px_rgba(230,200,139,0.5)]'
-                : 'bg-white/10 text-gray-400 hover:bg-white/20'
+                ? 'bg-[#6B1F32] text-[#FFF9F2] font-bold shadow-md'
+                : 'bg-white/20 text-gray-300 hover:bg-white/30'
             }`}
           >
-            <Lightbulb className="w-3.5 h-3.5" />
+            <Lightbulb className="w-3.5 h-3.5 text-[#B9828F]" />
             <span>{isOn ? 'POWER: ON' : 'POWER: OFF'}</span>
           </button>
         </div>
@@ -205,23 +194,23 @@ export default function VoltaInteractiveDemo() {
       {/* Right Interactive Controls */}
       <div className="w-full md:w-1/2 space-y-5">
         <div>
-          <div className="inline-flex items-center gap-2 text-xs font-mono-code text-[#e6c88b] uppercase tracking-wider mb-1">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 text-xs font-mono-code text-[#6B1F32] uppercase tracking-wider mb-1 font-bold">
+            <Sparkles className="w-3.5 h-3.5 text-[#B9828F]" />
             <span>Interactive Simulator</span>
           </div>
-          <h4 className="text-xl font-bold font-display text-white">
+          <h4 className="text-xl font-bold font-display text-[#3B2929]">
             Filament & Glow Lab
           </h4>
-          <p className="text-xs text-gray-400">
-            Real-time physics and color temperature preview from the Volta & Co. project.
+          <p className="text-xs text-gray-600">
+            Real-time physics and color temperature preview from Volta & Co.
           </p>
         </div>
 
         {/* Brightness Dimmer */}
         <div className="space-y-1.5">
-          <div className="flex justify-between text-xs font-mono-code text-gray-300">
+          <div className="flex justify-between text-xs font-mono-code text-[#3B2929]">
             <span>Dimmer / Lumens</span>
-            <span className="text-[#e6c88b]">{isOn ? `${brightness}%` : '0%'}</span>
+            <span className="text-[#6B1F32] font-bold">{isOn ? `${brightness}%` : '0%'}</span>
           </div>
           <input
             type="range"
@@ -230,13 +219,13 @@ export default function VoltaInteractiveDemo() {
             value={brightness}
             disabled={!isOn}
             onChange={(e) => setBrightness(Number(e.target.value))}
-            className="w-full accent-[#e6c88b] cursor-pointer"
+            className="w-full accent-[#6B1F32] cursor-pointer"
           />
         </div>
 
         {/* Filament Geometry Selection */}
         <div className="space-y-1.5">
-          <label className="text-xs font-mono-code text-gray-300 block">
+          <label className="text-xs font-mono-code text-[#3B2929] block font-medium">
             Filament Geometry
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -249,8 +238,8 @@ export default function VoltaInteractiveDemo() {
                 }}
                 className={`px-2.5 py-1.5 rounded-xl text-xs font-mono-code transition-all cursor-pointer ${
                   filamentType === type.id
-                    ? 'bg-[#e6c88b] text-[#0a0a10] font-bold shadow-sm'
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                    ? 'bg-[#6B1F32] text-[#FFF9F2] font-bold shadow-sm'
+                    : 'bg-[#F7F0E6] text-[#3B2929]/70 hover:bg-[#E8D8C8]'
                 }`}
               >
                 {type.name}
@@ -261,7 +250,7 @@ export default function VoltaInteractiveDemo() {
 
         {/* Glass Tint Selection */}
         <div className="space-y-1.5">
-          <label className="text-xs font-mono-code text-gray-300 block">
+          <label className="text-xs font-mono-code text-[#3B2929] block font-medium">
             Glass Envelope Tint
           </label>
           <div className="grid grid-cols-2 gap-2">
@@ -274,8 +263,8 @@ export default function VoltaInteractiveDemo() {
                 }}
                 className={`px-3 py-1.5 rounded-xl text-xs font-mono-code flex items-center gap-2 transition-all cursor-pointer ${
                   glassTint.id === tint.id
-                    ? 'bg-[#e6c88b]/20 border border-[#e6c88b] text-[#e6c88b] font-bold'
-                    : 'bg-white/5 border border-white/5 text-gray-400 hover:bg-white/10'
+                    ? 'bg-[#6B1F32]/10 border border-[#6B1F32] text-[#6B1F32] font-bold'
+                    : 'bg-[#F7F0E6] border border-[#E8D8C8] text-[#3B2929]/70 hover:bg-[#E8D8C8]'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: tint.hex }} />
