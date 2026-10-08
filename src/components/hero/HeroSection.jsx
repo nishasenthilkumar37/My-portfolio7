@@ -65,13 +65,13 @@ export default function HeroSection() {
       style={{ perspective: 1200 }}
     >
       {/* ========================================================
-          1. 3D MOVING TULIP BACKGROUND (CLEAR, VIVID & 3D DYNAMIC)
+          1. 3D MOVING TULIP BACKGROUND (PROMINENT, VIVID & CLEAR)
       ======================================================== */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         
         {/* Interactive 3D Tulip Canvas Plane */}
         <motion.div
-          className="absolute inset-[-8%] w-[116%] h-[116%] z-0 flex items-center justify-end"
+          className="absolute inset-[-6%] w-[112%] h-[112%] z-0 flex items-center justify-center"
           style={{
             x: bgTranslateX,
             y: bgTranslateY,
@@ -82,44 +82,49 @@ export default function HeroSection() {
             transformOrigin: 'center center'
           }}
         >
-          {/* Tulip Photographic Background Layer - CRISP, CLEAR & VIVID */}
+          {/* Tulip Photographic Background Layer - HIGH VISIBILITY & VIBRANT */}
           <motion.div
             animate={{
-              y: [0, -20, 0],
-              rotate: [0, 1.8, 0],
-              scale: [1.02, 1.07, 1.02]
+              y: [0, -16, 0],
+              rotate: [0, 1.2, 0],
+              scale: [1.02, 1.06, 1.02]
             }}
             transition={{
-              duration: 8,
+              duration: 9,
               repeat: Infinity,
               ease: 'easeInOut'
             }}
-            className="w-full h-full relative flex items-center justify-end"
+            className="w-full h-full relative"
           >
             <img
               src="/assets/realistic-tulip.jpg"
               alt="Realistic 3D Burgundy Tulip Background"
-              className="w-full h-full object-cover object-[75%_35%] lg:object-[80%_center] opacity-95 sm:opacity-100 filter saturate-[1.18] contrast-[1.08] drop-shadow-2xl"
+              className="w-full h-full object-cover object-[75%_center] lg:object-[82%_center] opacity-100 filter saturate-[1.28] contrast-[1.14] brightness-[1.03]"
             />
           </motion.div>
         </motion.div>
 
-        {/* Targeted Soft Gradient Overlay: Keeps left text readable while right tulip is 100% CLEAR */}
+        {/* Directional Soft Scrim: Preserves text readability on left, leaves tulips clearly noticeable on right and center */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to right, rgba(247, 240, 230, 0.94) 0%, rgba(247, 240, 230, 0.88) 32%, rgba(247, 240, 230, 0.45) 60%, rgba(247, 240, 230, 0.1) 85%, transparent 100%)'
+              'linear-gradient(to right, rgba(247, 240, 230, 0.88) 0%, rgba(247, 240, 230, 0.72) 35%, rgba(247, 240, 230, 0.3) 65%, rgba(247, 240, 230, 0.05) 90%, transparent 100%)'
           }}
         />
 
-        {/* Subtle Top & Bottom Soft Fade to blend with page */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#F7F0E6] via-[#F7F0E6]/80 to-transparent z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F0E6] via-[#F7F0E6]/85 to-transparent z-10" />
-        
-        {/* Soft Ambient Warm Glow Highlights */}
-        <div className="ambient-glow-circle w-[550px] h-[550px] top-[-50px] right-[-50px] bg-gradient-to-bl from-[#B9828F]/30 to-transparent z-10" />
-        <div className="ambient-glow-circle w-[500px] h-[500px] bottom-[-50px] left-[-50px] bg-gradient-to-tr from-[#6B1F32]/10 to-transparent z-10" />
+        {/* Soft Radial Backlight to give tulips depth */}
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse at 80% 50%, transparent 30%, rgba(247, 240, 230, 0.4) 85%)'
+          }}
+        />
+
+        {/* Top & Bottom seamless blend */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F7F0E6] via-[#F7F0E6]/70 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#F7F0E6] via-[#F7F0E6]/75 to-transparent z-10" />
       </div>
 
       {/* ========================================================

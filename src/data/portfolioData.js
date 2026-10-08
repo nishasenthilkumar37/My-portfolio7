@@ -151,13 +151,10 @@ export const SKILL_CATEGORIES = [
     ]
   },
   {
-    name: "Tools & Creative Tech",
+    name: "Tools & Collaboration",
     skills: [
       { name: "Git", level: "Version Control", description: "Branching, committing, staging & version history management", icon: "🌿", color: "#f05032" },
-      { name: "GitHub", level: "Collaboration", description: "Repository hosting, project tracking & deployment workflows", icon: "🐙", color: "#ffffff" },
-      { name: "Three.js / 3D Canvas", level: "Interactive", description: "WebGL scenes, 3D mesh rendering, lighting & interactive canvas effects", icon: "🔮", color: "#e6c88b" },
-      { name: "Framer Motion", level: "Animation", description: "Declarative spring animations, layout transitions & scroll effects", icon: "✨", color: "#ff0055" },
-      { name: "Responsive UI/UX", level: "Design", description: "Wireframing, typography, color balance & user journey optimization", icon: "📐", color: "#f4a6b8" }
+      { name: "GitHub", level: "Collaboration", description: "Repository hosting, project tracking & deployment workflows", icon: "🐙", color: "#ffffff" }
     ]
   }
 ];
@@ -170,9 +167,8 @@ export const ALL_SKILLS_FLAT = [
   { name: "Python", category: "Programming", color: "#3776ab", tag: "Scripting & Algorithms" },
   { name: "Git", category: "Tooling", color: "#f05032", tag: "Version Control" },
   { name: "GitHub", category: "Tooling", color: "#e2e8f0", tag: "Repository Management" },
-  { name: "Three.js", category: "Interactive", color: "#e6c88b", tag: "3D & WebGL" },
-  { name: "Web Audio API", category: "Interactive", color: "#f4a6b8", tag: "Audio Synthesis" },
-  { name: "Responsive UI", category: "Design", color: "#64dfdf", tag: "Mobile & Desktop UX" }
+  { name: "SQL", category: "Database", color: "#336791", tag: "Relational Database" },
+  { name: "Node / Express", category: "Backend", color: "#68a063", tag: "Backend APIs" }
 ];
 
 export const PROJECTS = [
