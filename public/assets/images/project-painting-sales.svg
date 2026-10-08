@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="art-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D0C18" />
+      <stop offset="50%" stop-color="#58111A" />
+      <stop offset="100%" stop-color="#8B263E" />
+    </linearGradient>
+    <linearGradient id="canvas-art-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B172E" />
+      <stop offset="50%" stop-color="#D48B97" />
+      <stop offset="100%" stop-color="#FAF6F0" />
+    </linearGradient>
+    <linearGradient id="canvas-art-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0E17" />
+      <stop offset="50%" stop-color="#8B263E" />
+      <stop offset="100%" stop-color="#D48B97" />
+    </linearGradient>
+    <linearGradient id="canvas-art-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D48B97" />
+      <stop offset="50%" stop-color="#E8A5B2" />
+      <stop offset="100%" stop-color="#FAF6F0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#art-bg)"/>
+
+  <g transform="translate(50, 35)">
+    <!-- Browser App Frame -->
+    <rect width="700" height="430" rx="12" fill="#14050A" stroke="rgba(212, 139, 151, 0.25)" stroke-width="1.5"/>
+    
+    <!-- Top Nav Header -->
+    <circle cx="25" cy="22" r="5" fill="#E8A5B2"/>
+    <circle cx="42" cy="22" r="5" fill="#D48B97"/>
+    <circle cx="59" cy="22" r="5" fill="#FAF6F0"/>
+    <rect x="220" y="12" width="260" height="20" rx="10" fill="#240E16"/>
+    <text x="350" y="26" fill="#D48B97" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">artgallery-marketplace.app/shop</text>
+
+    <!-- App Storefront Header -->
+    <g transform="translate(30, 48)">
+      <text x="0" y="24" fill="#FAF6F0" font-size="17" font-family="'Outfit', sans-serif" font-weight="800">🖼️ Artisan Canvas Gallery</text>
+      <text x="0" y="44" fill="#D48B97" font-size="11" font-family="sans-serif">Handcrafted Oil &amp; Acrylic Paintings by Independent Artists</text>
+      
+      <!-- Filter Tabs -->
+      <g transform="translate(420, 10)">
+        <rect x="0" y="0" width="55" height="24" rx="12" fill="#6B172E"/>
+        <text x="27" y="16" fill="#FAF6F0" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">All</text>
+        
+        <rect x="62" y="0" width="65" height="24" rx="12" fill="#240E16"/>
+        <text x="94" y="16" fill="#D48B97" font-size="10" font-family="sans-serif" text-anchor="middle">Abstract</text>
+        
+        <rect x="134" y="0" width="65" height="24" rx="12" fill="#240E16"/>
+        <text x="166" y="16" fill="#D48B97" font-size="10" font-family="sans-serif" text-anchor="middle">Oil</text>
+        
+        <rect x="206" y="0" width="50" height="24" rx="12" fill="#240E16"/>
+        <text x="231" y="16" fill="#D48B97" font-size="10" font-family="sans-serif" text-anchor="middle">Cart (2)</text>
+      </g>
+    </g>
+
+    <!-- Artwork Cards Grid -->
+    <!-- Card 1 -->
+    <g transform="translate(30, 110)">
+      <rect width="200" height="290" rx="10" fill="#1F0A12" stroke="rgba(212, 139, 151, 0.15)"/>
+      <rect x="12" y="12" width="176" height="135" rx="6" fill="url(#canvas-art-1)"/>
+      <!-- Painting abstract detail -->
+      <circle cx="100" cy="70" r="35" fill="rgba(250, 246, 240, 0.3)"/>
+      <polygon points="60,110 120,40 160,120" fill="rgba(45, 13, 22, 0.3)"/>
+      
+      <text x="12" y="170" fill="#FAF6F0" font-size="12" font-family="'Outfit', sans-serif" font-weight="bold">Burgundy Twilight</text>
+      <text x="12" y="188" fill="#D6C5C9" font-size="10" font-family="sans-serif">Acrylic on Canvas • 24x36"</text>
+      
+      <text x="12" y="215" fill="#D48B97" font-size="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900">$180</text>
+      <rect x="140" y="200" width="48" height="20" rx="10" fill="#6B172E" fill-opacity="0.3"/>
+      <text x="164" y="214" fill="#FAF6F0" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">In Stock</text>
+
+      <rect x="12" y="240" width="176" height="34" rx="6" fill="#6B172E"/>
+      <text x="100" y="261" fill="#FAF6F0" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Add to Cart 🛒</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(250, 110)">
+      <rect width="200" height="290" rx="10" fill="#1F0A12" stroke="rgba(212, 139, 151, 0.15)"/>
+      <rect x="12" y="12" width="176" height="135" rx="6" fill="url(#canvas-art-2)"/>
+      <!-- Painting abstract detail -->
+      <path d="M 20 120 Q 90 30 160 110" stroke="rgba(250, 246, 240, 0.45)" stroke-width="8" fill="none"/>
+      
+      <text x="12" y="170" fill="#FAF6F0" font-size="12" font-family="'Outfit', sans-serif" font-weight="bold">Dusky Rose Velvet</text>
+      <text x="12" y="188" fill="#D6C5C9" font-size="10" font-family="sans-serif">Oil Textured • 30x40"</text>
+      
+      <text x="12" y="215" fill="#D48B97" font-size="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900">$240</text>
+      <rect x="140" y="200" width="48" height="20" rx="10" fill="#6B172E" fill-opacity="0.3"/>
+      <text x="164" y="214" fill="#FAF6F0" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">In Stock</text>
+
+      <rect x="12" y="240" width="176" height="34" rx="6" fill="#6B172E"/>
+      <text x="100" y="261" fill="#FAF6F0" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Add to Cart 🛒</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(470, 110)">
+      <rect width="200" height="290" rx="10" fill="#1F0A12" stroke="rgba(212, 139, 151, 0.15)"/>
+      <rect x="12" y="12" width="176" height="135" rx="6" fill="url(#canvas-art-3)"/>
+      <!-- Painting abstract detail -->
+      <circle cx="70" cy="60" r="25" fill="rgba(107, 23, 46, 0.3)"/>
+      <rect x="100" y="50" width="50" height="50" rx="4" fill="rgba(212, 139, 151, 0.4)"/>
+      
+      <text x="12" y="170" fill="#FAF6F0" font-size="12" font-family="'Outfit', sans-serif" font-weight="bold">Cream &amp; Petals</text>
+      <text x="12" y="188" fill="#D6C5C9" font-size="10" font-family="sans-serif">Mixed Media • 20x24"</text>
+      
+      <text x="12" y="215" fill="#D48B97" font-size="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900">$145</text>
+      <rect x="140" y="200" width="48" height="20" rx="10" fill="#6B172E" fill-opacity="0.3"/>
+      <text x="164" y="214" fill="#FAF6F0" font-size="9" font-family="sans-serif" font-weight="bold" text-anchor="middle">1 Left</text>
+
+      <rect x="12" y="240" width="176" height="34" rx="6" fill="#6B172E"/>
+      <text x="100" y="261" fill="#FAF6F0" font-size="10" font-family="sans-serif" font-weight="bold" text-anchor="middle">Add to Cart 🛒</text>
+    </g>
+  </g>
+</svg>
