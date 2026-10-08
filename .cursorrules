@@ -1,0 +1,7 @@
+# Nisha S Portfolio — Technology & Workflow Rules
+
+- This project is strictly built with vanilla HTML5, CSS3, and JavaScript (ES6+).
+- NEVER install, import, or introduce React, Vite, Next.js, JSX, or npm dependencies.
+- All code changes must directly modify `index.html`, `css/style.css`, or `js/app.js`.
+- The website must work directly when opening `index.html` in a web browser.
+- The tulip background must stay exclusive to the `#home` page with high visibility and text readability.

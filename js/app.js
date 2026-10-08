@@ -722,7 +722,7 @@ const PROJECT_MODAL_DATA = {
     title: 'VOLTA & CO. — Vintage Bulbs',
     subtitle: 'Full-Stack Visually Immersive Vintage Lighting & Artisan Filament Web Experience',
     category: 'Full-Stack & Interactive 3D',
-    technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Express', 'MongoDB', 'Web Audio API', 'Canvas Confetti'],
+    technologies: ['HTML5 Canvas API', 'Vanilla JavaScript (ES6+)', 'Modern CSS', 'Web Audio API', 'Express', 'MongoDB'],
     overview: 'VOLTA & CO. is a full-stack, visually immersive digital atelier dedicated to handcrafted vintage lighting, Edison bulbs, and luminous ambient spaces. It combines real-time filament glow physics with a comprehensive e-commerce catalog, customizer studio, and room ambiance simulator.',
     problem: 'Traditional lighting storefronts treat lighting as flat, static catalog items without conveying the warm radiance, filament geometry, color temperature, and ambient warmth that define vintage illumination.',
     solution: 'Designed and engineered an interactive digital experience where users can manipulate filament geometries, tweak glass tints, explore 360° views, simulate real-world room lighting, and customize bespoke lighting hardware with dynamic ambient glow calculations.',
